@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { db } from "@/lib/db";
+import type { FieldPacket } from "mysql2";  // ✅ เพิ่มเข้ามา
 
 // กำหนด type ให้ตรงกับตาราง number_value
 interface NumberValueRow {
@@ -24,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       const [rows] = await db.query(
         "SELECT * FROM number_value WHERE id = 1"
-      ) as [NumberValueRow[], any];
+      ) as [NumberValueRow[], FieldPacket[]];   // ✅ แก้ any เป็น FieldPacket[]
 
       const row = rows[0] ?? null;
 
