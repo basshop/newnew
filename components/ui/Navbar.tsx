@@ -4,20 +4,19 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { 
-  Menu, CircleDollarSign, Home, ShoppingBag, Gamepad, CreditCard, DollarSign, 
+  Menu, CircleDollarSign, Home, 
   TableOfContents, MessageSquare, ClipboardList 
 } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ProfileDropdown } from "@/components/ui/ProfileDropdown";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { FaFacebook } from "react-icons/fa";
 
 export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [contactOpen, setContactOpen] = useState(false)
-  const [point, setBalance] = useState(0);
+  // ❌ point และ setBalance ไม่ได้ใช้ เลยตัดออกไป
 
   useEffect(() => {
     async function checkLogin() {
@@ -86,18 +85,14 @@ export default function Navbar() {
         
         {/* Search + Buttons */}
         <div className="hidden md:flex items-center space-x-4 ml-auto">
-  
-  
-
-            <Link href="#">
-              <Button
-                className="w-full rounded-[10px] border-none transition-opacity duration-300 text-white hover:opacity-90 px-4 py-2"
-                style={{ background: 'linear-gradient(90deg, #17aeff 0%, #c2e4ff 100%)' }}
-              >
-                เริ่มต้นกับเรา
-              </Button>
-            </Link>
-     
+          <Link href="#">
+            <Button
+              className="w-full rounded-[10px] border-none transition-opacity duration-300 text-white hover:opacity-90 px-4 py-2"
+              style={{ background: 'linear-gradient(90deg, #17aeff 0%, #c2e4ff 100%)' }}
+            >
+              เริ่มต้นกับเรา
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu */}
@@ -144,33 +139,24 @@ export default function Navbar() {
 
                 <div className="flex items-center text-sm text-gray-700 py-2">
                   <hr className="flex-grow border-t border-gray-300" />
-           
-              
-         
-                    <span className="px-3 whitespace-nowrap">เริ่มต้นกับเรา</span>
-              
+                  <span className="px-3 whitespace-nowrap">เริ่มต้นกับเรา</span>
                   <hr className="flex-grow border-t border-gray-300" />
                 </div>
 
                 <div className="flex items-center justify-between px-1">
-          
-          
-          
-                    <Link href="#">
-                      <Button
-                        className="w-full rounded-[10px] bg-gradient-to-r from-[#17aeff] via-[#17aeff] to-[#c2e4ff] border-none transition-opacity duration-300 text-white hover:opacity-90"
-                      >
-                        เริ่มต้นกับเรา
-                      </Button>
-                    </Link>
-     
+                  <Link href="#">
+                    <Button
+                      className="w-full rounded-[10px] bg-gradient-to-r from-[#17aeff] via-[#17aeff] to-[#c2e4ff] border-none transition-opacity duration-300 text-white hover:opacity-90"
+                    >
+                      เริ่มต้นกับเรา
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </SheetContent>
           </Sheet>
         </div>
       </div>
-
 
       {/* Contact Dialog */}
       <Dialog open={contactOpen} onOpenChange={setContactOpen}>
