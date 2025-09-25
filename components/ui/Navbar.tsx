@@ -4,13 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { 
-  Menu, CircleDollarSign, Home, ShoppingBag, Gamepad, CreditCard, DollarSign, 
-  TableOfContents, MessageSquare, ClipboardList 
+  Menu, CircleDollarSign, Home, TableOfContents, MessageSquare, ClipboardList 
 } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ProfileDropdown } from "@/components/ui/ProfileDropdown";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 
